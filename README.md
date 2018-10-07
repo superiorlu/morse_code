@@ -51,6 +51,36 @@ puts dit_dah_to
 $> I A M R O B O T .
 ```
 
+### Terminal
+
+```shell
+$> mc
+mc commands:
+  mc decode MESSAGE  # decode Morse Code as original message
+  mc encode MESSAGE  # encode message as Morse Code
+  mc help [COMMAND]  # Describe available commands or one specific command
+```
+
+#### encode
+
+```shell
+$> mc -e 'I am Robot.'
+.. .- -- .-. --- -... --- - .-.-.-
+
+$> mc -e 'I am Robot.' --dit-dah
+DITDIT DITDAH DAHDAH DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH
+```
+
+#### decode
+
+```shell
+$> mc -d '.. .- -- .-. --- -... --- - .-.-.-'
+I A M R O B O T .
+
+$> mc -d 'DITDIT DITDAH DAHDAH DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH' --dit-dah
+I A M R O B O T .
+```
+
 ### Contributing
 
 #### Fork the Project

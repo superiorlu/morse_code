@@ -3,14 +3,14 @@ require 'test_helper'
 class TestDecoder < Minitest::Test
 
   def test_decode
-    content = '.. .- -- .-. --- -... --- - .-.-.-'
-    decode_content = MorseCode::Decoder.new(content).decode
-    assert_equal 'I A M R O B O T .', decode_content
+    encode_message = '.. .- -- .-. --- -... --- - .-.-.-'
+    decode_message = MorseCode::Decoder.new(encode_message).decode
+    assert_equal 'I A M R O B O T .', decode_message
   end
 
   def test_dit_dah_to
-    content = 'DITDIT DITDAH DAHDAH DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH'
-    decode_content = MorseCode::Decoder.new(content).dit_dah_to
-    assert_equal 'I A M R O B O T .', decode_content
+    encode_message = 'DITDIT DITDAH DAHDAH DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH'
+    decode_message = MorseCode::Decoder.new(encode_message).dit_dah_to
+    assert_equal 'I A M R O B O T .', decode_message
   end
 end

@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['YingRui Lu']
   spec.email         = ['luyingrui518@gmail.com']
 
-  spec.summary       = 'Morse Code Tool'
-  spec.description   = 'Morse Code Tool'
+  spec.summary       = 'Simple Morse Code Encode and Decode Tool'
   spec.homepage      = 'https://github.com/superiorlu/morse_code'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -23,7 +22,7 @@ Gem::Specification.new do |spec|
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files         = Dir['lib/**/*.rb', 'README.md']
+  spec.files         = Dir['lib/**/*.rb', 'README.md', 'bin/mc',]
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
   spec.licenses      = ['MIT']
@@ -36,4 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry', '~> 0.11'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rubocop', '~> 0.59'
+
+  spec.add_dependency 'thor', '~> 0.19'
+  spec.required_ruby_version = '>= 2.0.0'
 end

@@ -2,6 +2,7 @@ require 'morse_code/version'
 require 'morse_code/error'
 require 'morse_code/encoder'
 require 'morse_code/decoder'
+require 'morse_code/cli'
 
 module MorseCode
   ENCODE_MAP = Hash[*%w/
