@@ -2,6 +2,8 @@
 
 Simple Morse Code Encode and Decode Tool
 
+[![Gem Version](http://img.shields.io/gem/v/morse-code-rb.svg)](https://rubygems.org/gems/morse-code-rb) [![Build Status](https://travis-ci.org/superiorlu/morse_code.png)](https://travis-ci.org/superiorlu/morse_code) [![GitHub license](https://img.shields.io/github/license/superiorlu/morse_code.svg)](https://github.com/superiorlu/morse_code/blob/master/LICENSE.md)
+
 ## Installation
 
 Add this line to your application's Gemfile:
