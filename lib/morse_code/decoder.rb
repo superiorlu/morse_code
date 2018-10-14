@@ -8,9 +8,16 @@ module MorseCode
 
     def decode
       [].tap do |decode_words|
-        @message.split(/\s+/).each do |word|
-          decode_words << (MorseCode::DECODE_MAP[word] || word)
+        word = []
+        @message.split(/\s+/).each do |char|
+          if char == '/'
+            decode_words.push(word.join)
+            word = []
+          else
+            word.push(MorseCode::DECODE_MAP[char] || char)
+          end
         end
+        decode_words.push(word.join) if word.size > 0
       end.join(' ')
     end
 

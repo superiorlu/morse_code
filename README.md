@@ -31,8 +31,8 @@ dit_dah = MorseCode::Encoder.new(content).dit_dah
 puts encode_content
 puts dit_dah
 
-$> .. .- -- .-. --- -... --- - .-.-.-
-$> DITDIT DITDAH DAHDAH DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH
+$> .. / .- -- / .-. --- -... --- - .-.-.-
+$> DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH
 ```
 
 ### Decode
@@ -40,15 +40,15 @@ $> DITDIT DITDAH DAHDAH DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDIT
 ```ruby
 require 'morse_code'
 
-content = '.. .- -- .-. --- -... --- - .-.-.-'
+content = '.. / .- -- / .-. --- -... --- - .-.-.-'
 decode_content = MorseCode::Decoder.new(content).decode
 puts decode_content
-$> I A M R O B O T .
+$> I AM ROBOT.
 
-dit_dah = 'DITDIT DITDAH DAHDAH DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH'
+dit_dah = 'DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH'
 dit_dah_to = MorseCode::Decoder.new(dit_dah).dit_dah_to
 puts dit_dah_to
-$> I A M R O B O T .
+$> I AM ROBOT.
 ```
 
 ### Terminal
@@ -65,20 +65,20 @@ mc commands:
 
 ```shell
 $> mc -e 'I am Robot.'
-.. .- -- .-. --- -... --- - .-.-.-
+.. / .- -- / .-. --- -... --- - .-.-.-
 
 $> mc -e 'I am Robot.' --dit-dah
-DITDIT DITDAH DAHDAH DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH
+DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH
 ```
 
 #### decode
 
 ```shell
-$> mc -d '.. .- -- .-. --- -... --- - .-.-.-'
-I A M R O B O T .
+$> mc -d '.. / .- -- / .-. --- -... --- - .-.-.-'
+I AM ROBOT.
 
-$> mc -d 'DITDIT DITDAH DAHDAH DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH' --dit-dah
-I A M R O B O T .
+$> mc -d 'DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH' --dit-dah
+I AM ROBOT.
 ```
 
 ### Contributing

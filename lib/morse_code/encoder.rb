@@ -11,8 +11,10 @@ module MorseCode
         @message.split(/\s+/).each do |word|
           encode_word = []
           word.each_char { |char| encode_word << (MorseCode::ENCODE_MAP[char] || char) }
+          encode_word.push('/')
           encode_words.concat(encode_word)
         end
+        encode_words.pop
       end.join(' ')
     end
 
