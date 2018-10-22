@@ -1,9 +1,9 @@
 require 'morse_code/error'
-require_relative 'base'
+require 'morse_code/base'
 
 module MorseCode
   module Decoders
-    class Chinese < Base
+    class Chinese < MorseCode::Base
 
       MIN_CHINESE_CODEPOINT = 19_968  # \u4e00
       MAX_CHINESE_CODEPOINT = 40_869  # \u9fa5

@@ -1,9 +1,9 @@
 require 'morse_code/error'
-require_relative 'base'
+require 'morse_code/base'
 
 module MorseCode
   module Decoders
-    class English < Base
+    class English < MorseCode::Base
 
       def supported?
         !MorseCode::DECODE_MAP[word].nil?
