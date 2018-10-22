@@ -1,5 +1,7 @@
 module MorseCode
   class Error < StandardError; end
 
-  class NotSupported < Error; end
+  class NotSupportedError < Error; end
+
+  class NotImplementedError < Error; end
 end

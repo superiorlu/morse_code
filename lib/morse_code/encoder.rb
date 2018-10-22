@@ -1,4 +1,7 @@
 require 'morse_code/error'
+require 'morse_code/encoders/base'
+require 'morse_code/encoders/chinese'
+require 'morse_code/encoders/english'
 
 module MorseCode
   class Encoder
@@ -9,10 +12,7 @@ module MorseCode
     def encode
       [].tap do |encode_words|
         @message.split(/\s+/).each do |word|
-          encode_word = []
-          word.each_char { |char| encode_word << (MorseCode::ENCODE_MAP[char] || char) }
-          encode_word.push('/')
-          encode_words.concat(encode_word)
+          encode_words.concat(encode_word(word))
         end
         encode_words.pop
       end.join(' ')
@@ -22,5 +22,19 @@ module MorseCode
       encode.tap { |message| message.gsub!('.', 'DIT'); message.gsub!('-', 'DAH') }
     end
     alias dit_dah encode_with
+
+    private
+
+    def encode_word(word)
+      encode_word = []
+      word.each_char { |char| encode_word << encode_letter(char) }
+      encode_word.push('/')
+    end
+
+    def encode_letter(letter)
+      supported_class = MorseCode::Encoders::Base.new(letter).supported_class
+      return supported_class.new(letter).encode if supported_class
+      return letter
+    end
   end
 end

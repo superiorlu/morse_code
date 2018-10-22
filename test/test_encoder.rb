@@ -8,6 +8,12 @@ class TestEncoder < Minitest::Test
     assert_equal '.. / .- -- / .-. --- -... --- - .-.-.-', encode_message
   end
 
+  def test_chinese_encode
+    message = '我是中国人'
+    encode_message = MorseCode::Encoder.new(message).encode
+    assert_equal '--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.', encode_message
+  end
+
   def test_dit_dah
     message = 'I am Robot.'
     encode_message = MorseCode::Encoder.new(message).dit_dah

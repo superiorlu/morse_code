@@ -1,4 +1,7 @@
 require 'morse_code/error'
+require 'morse_code/decoders/base'
+require 'morse_code/decoders/chinese'
+require 'morse_code/decoders/english'
 
 module MorseCode
   class Decoder
@@ -14,7 +17,7 @@ module MorseCode
             decode_words.push(word.join)
             word = []
           else
-            word.push(MorseCode::DECODE_MAP[char] || char)
+            word.push(decode_char(char))
           end
         end
         decode_words.push(word.join) if word.size > 0
@@ -26,5 +29,13 @@ module MorseCode
       decode
     end
     alias dit_dah_to decode_with
+
+    private
+
+    def decode_char(char)
+      supported_class = MorseCode::Decoders::Base.new(char).supported_class
+      return supported_class.new(char).decode if supported_class
+      return char
+    end
   end
 end
