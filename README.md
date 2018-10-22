@@ -28,13 +28,18 @@ Or install it yourself as:
 require 'morse_code'
 
 content = 'I am Robot.'
-encode_content = MorseCode::Encoder.new(content).encode
-dit_dah = MorseCode::Encoder.new(content).dit_dah
-puts encode_content
-puts dit_dah
+MorseCode::Encoder.new(content).encode
+$> ".. / .- -- / .-. --- -... --- - .-.-.-"
 
-$> .. / .- -- / .-. --- -... --- - .-.-.-
-$> DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH
+MorseCode::Encoder.new(content).dit_dah
+$> "DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH"
+
+content = '我是中国人'
+MorseCode::Encoder.new(content).encode
+$> "--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
+
+MorseCode::Encoder.new(content).dit_dah
+$> "DAHDAHDITDITDITDAHDITDITDITDITDAHDITDITDITDAH DAHDAHDITDITDAHDAHDITDITDITDAHDITDAHDAHDAHDAH DAHDITDITDAHDAHDAHDITDITDITDAHDITDAHDAHDITDAH DAHDITDAHDITDAHDAHDITDAHDAHDAHDAHDAHDAHDITDAH DAHDITDITDAHDAHDAHDITDAHDITDAHDAHDAHDITDAHDIT"
 ```
 
 ### Decode
@@ -43,14 +48,16 @@ $> DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDA
 require 'morse_code'
 
 content = '.. / .- -- / .-. --- -... --- - .-.-.-'
-decode_content = MorseCode::Decoder.new(content).decode
-puts decode_content
-$> I AM ROBOT.
+MorseCode::Decoder.new(content).decode
+$> "I AM ROBOT."
 
 dit_dah = 'DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH'
-dit_dah_to = MorseCode::Decoder.new(dit_dah).dit_dah_to
-puts dit_dah_to
-$> I AM ROBOT.
+MorseCode::Decoder.new(dit_dah).dit_dah_to
+$> "I AM ROBOT."
+
+content = '--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.'
+MorseCode::Decoder.new(content).decode
+$> "我是中国人"
 ```
 
 ### Terminal
@@ -67,20 +74,26 @@ mc commands:
 
 ```shell
 $> mc -e 'I am Robot.'
-.. / .- -- / .-. --- -... --- - .-.-.-
+$> ".. / .- -- / .-. --- -... --- - .-.-.-"
 
 $> mc -e 'I am Robot.' --dit-dah
-DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH
+$> "DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH"
+
+$> mc -e '我是中国人'
+$> "--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
 ```
 
 #### decode
 
 ```shell
 $> mc -d '.. / .- -- / .-. --- -... --- - .-.-.-'
-I AM ROBOT.
+$> "I AM ROBOT."
 
 $> mc -d 'DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH' --dit-dah
-I AM ROBOT.
+$> "I AM ROBOT."
+
+$> mc -d '--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.'
+$> "我是中国人"
 ```
 
 ### Contributing
