@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class TestDecodersBase < Minitest::Test
-
   def test_encode_supported_classes
     supported_classes = MorseCode::Base.new('我').supported_classes
     assert_equal supported_classes, [MorseCode::Encoders::Chinese]

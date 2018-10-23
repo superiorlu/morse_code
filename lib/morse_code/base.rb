@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'morse_code/error'
 
 module MorseCode

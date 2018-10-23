@@ -26,3 +26,7 @@ Metrics/BlockLength:
 Layout/SpaceInsideArrayPercentLiteral:
   Exclude:
    - 'lib/morse_code.rb'    
+
+Lint/UnneededSplatExpansion:
+  Exclude:
+   - 'lib/morse_code.rb'

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class TestEncodersEnglish < Minitest::Test
-
   def test_supported
     encoder = MorseCode::Encoders::English.new('I')
     assert_equal true, encoder.supported?

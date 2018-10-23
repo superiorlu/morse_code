@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'morse_code/error'
 require 'morse_code/base'
 require 'morse_code/encoders/chinese'
@@ -35,7 +37,8 @@ module MorseCode
       supported_classes = MorseCode::Base.new(letter).supported_classes
       supported_class = supported_classes.detect { |clazz| clazz.name.start_with?('MorseCode::Encoder') }
       return supported_class.new(letter).encode if supported_class
-      return letter
+
+      letter
     end
   end
 end

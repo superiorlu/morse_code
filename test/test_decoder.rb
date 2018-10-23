@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class TestDecoder < Minitest::Test
-
   def test_decode
     encode_message = '.. / .- -- / .-. --- -... --- - .-.-.-'
     decode_message = MorseCode::Decoder.new(encode_message).decode

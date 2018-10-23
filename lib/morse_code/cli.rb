@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'thor'
 
 module MorseCode
@@ -6,7 +8,7 @@ module MorseCode
     map '-e' => :encode
     map '-d' => :decode
 
-    desc 'encode MESSAGE', 'encode message as Morse Code' 
+    desc 'encode MESSAGE', 'encode message as Morse Code'
     method_option :dit_dah, aliases: '-d', type: :boolean, desc: 'encode DITDAH message'
     def encode(message = '')
       if options[:dit_dah]
@@ -16,7 +18,7 @@ module MorseCode
       end
     end
 
-    desc 'decode MESSAGE', 'decode Morse Code as original message' 
+    desc 'decode MESSAGE', 'decode Morse Code as original message'
     method_option :dit_dah, aliases: '-d', type: :boolean, desc: 'decode from DITDAH message'
     def decode(message = '')
       if options[:dit_dah]
