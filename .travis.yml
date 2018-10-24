@@ -1,9 +1,9 @@
 env:
   global:
     - CC_TEST_REPORTER_ID=00fa642fbc6e13664f775967f013ed8a986318fb99699f68015e6af691329946
-  matrix:
-    - TASKS=rubocop
+sudo: false
 language: ruby
+cache: bundler
 rvm:
   - 2.2
   - 2.3
@@ -14,6 +14,6 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - bundle exec rake test
+  - bundle exec rake
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
