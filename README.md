@@ -34,12 +34,12 @@ $> ".. / .- -- / .-. --- -... --- - .-.-.-"
 MorseCode::Encoder.new(content).dit_dah
 $> "DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH"
 
-content = '我是中国人'
+content = 'I am Chinese 我是中国人'
 MorseCode::Encoder.new(content).encode
-$> "--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
+$> ".. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
 
 MorseCode::Encoder.new(content).dit_dah
-$> "DAHDAHDITDITDITDAHDITDITDITDITDAHDITDITDITDAH DAHDAHDITDITDAHDAHDITDITDITDAHDITDAHDAHDAHDAH DAHDITDITDAHDAHDAHDITDITDITDAHDITDAHDAHDITDAH DAHDITDAHDITDAHDAHDITDAHDAHDAHDAHDAHDAHDITDAH DAHDITDITDAHDAHDAHDITDAHDITDAHDAHDAHDITDAHDIT"
+$> "DITDIT / DITDAH DAHDAH / DAHDITDAHDIT DITDITDITDIT DITDIT DAHDIT DIT DITDITDIT DIT / DAHDAHDITDITDITDAHDITDITDITDITDAHDITDITDITDAH DAHDAHDITDITDAHDAHDITDITDITDAHDITDAHDAHDAHDAH DAHDITDITDAHDAHDAHDITDITDITDAHDITDAHDAHDITDAH DAHDITDAHDITDAHDAHDITDAHDAHDAHDAHDAHDAHDITDAH DAHDITDITDAHDAHDAHDITDAHDITDAHDAHDAHDITDAHDIT"
 ```
 
 ### Decode
@@ -55,9 +55,9 @@ dit_dah = 'DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH D
 MorseCode::Decoder.new(dit_dah).dit_dah_to
 $> "I AM ROBOT."
 
-content = '--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.'
+content = '.. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.'
 MorseCode::Decoder.new(content).decode
-$> "我是中国人"
+$> "I AM CHINESE 我是中国人"
 ```
 
 ### Terminal
@@ -79,8 +79,8 @@ $> ".. / .- -- / .-. --- -... --- - .-.-.-"
 $> mc -e 'I am Robot.' --dit-dah
 $> "DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH"
 
-$> mc -e '我是中国人'
-$> "--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
+$> mc -e 'I am Chinese 我是中国人'
+$> ".. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
 ```
 
 #### decode
@@ -92,8 +92,8 @@ $> "I AM ROBOT."
 $> mc -d 'DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH' --dit-dah
 $> "I AM ROBOT."
 
-$> mc -d '--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.'
-$> "我是中国人"
+$> mc -d '.. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.'
+$> "I AM CHINESE 我是中国人"
 ```
 
 ### Contributing
