@@ -2,7 +2,7 @@
 
 Simple Morse Code Encode and Decode Tool
 
-[![Gem Version](http://img.shields.io/gem/v/morse-code-rb.svg)](https://rubygems.org/gems/morse-code-rb) [![Build Status](https://travis-ci.org/superiorlu/morse_code.svg)](https://travis-ci.org/superiorlu/morse_code) [![Maintainability](https://api.codeclimate.com/v1/badges/62b6eb7ed9b65c62d3f6/maintainability)](https://codeclimate.com/github/superiorlu/morse_code/maintainability) [![GitHub license](https://img.shields.io/github/license/superiorlu/morse_code.svg)](https://github.com/superiorlu/morse_code/blob/master/LICENSE.md)
+[![Gem Version](http://img.shields.io/gem/v/morse-code-rb.svg)](https://rubygems.org/gems/morse-code-rb) [![Build Status](https://travis-ci.org/superiorlu/morse_code.svg)](https://travis-ci.org/superiorlu/morse_code) [![Maintainability](https://api.codeclimate.com/v1/badges/62b6eb7ed9b65c62d3f6/maintainability)](https://codeclimate.com/github/superiorlu/morse_code/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/62b6eb7ed9b65c62d3f6/test_coverage)](https://codeclimate.com/github/superiorlu/morse_code/test_coverage) [![GitHub license](https://img.shields.io/github/license/superiorlu/morse_code.svg)](https://github.com/superiorlu/morse_code/blob/master/LICENSE.md)
 
 ## Installation
 
