@@ -2,6 +2,8 @@ require 'morse_code/version'
 require 'morse_code/error'
 require 'morse_code/encoder'
 require 'morse_code/decoder'
+require 'morse_code/sample'
+require 'morse_code/wave'
 require 'morse_code/cli'
 
 module MorseCode

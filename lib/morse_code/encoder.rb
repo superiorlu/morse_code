@@ -12,7 +12,7 @@ module MorseCode
     end
 
     def encode
-      [].tap do |encode_words|
+      @encode ||= [].tap do |encode_words|
         @message.split(/\s+/).each do |word|
           encode_words.concat(encode_word(word))
         end
@@ -21,9 +21,13 @@ module MorseCode
     end
 
     def encode_with
-      encode.tap { |message| message.gsub!('.', 'DIT'); message.gsub!('-', 'DAH') }
+      encode.dup.tap { |message| message.gsub!('.', 'DIT').gsub!('-', 'DAH') }
     end
     alias dit_dah encode_with
+
+    def wave
+      MorseCode::Wave.new(encode).generate
+    end
 
     private
 

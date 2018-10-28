@@ -12,6 +12,7 @@ class TestEncoder < Minitest::Test
   def test_chinese_encode
     message = '我是中国人'
     encode_message = MorseCode::Encoder.new(message).encode
+    wave = MorseCode::Wave.new(encode_message)
     assert_equal '--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.', encode_message
   end
 

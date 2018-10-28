@@ -29,18 +29,29 @@ require 'morse_code'
 
 content = 'I am Robot.'
 MorseCode::Encoder.new(content).encode
-$> ".. / .- -- / .-. --- -... --- - .-.-.-"
+=> ".. / .- -- / .-. --- -... --- - .-.-.-"
 
 MorseCode::Encoder.new(content).dit_dah
-$> "DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH"
+=> "DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH"
 
 content = 'I am Chinese 我是中国人'
 MorseCode::Encoder.new(content).encode
-$> ".. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
+=> ".. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
 
 MorseCode::Encoder.new(content).dit_dah
-$> "DITDIT / DITDAH DAHDAH / DAHDITDAHDIT DITDITDITDIT DITDIT DAHDIT DIT DITDITDIT DIT / DAHDAHDITDITDITDAHDITDITDITDITDAHDITDITDITDAH DAHDAHDITDITDAHDAHDITDITDITDAHDITDAHDAHDAHDAH DAHDITDITDAHDAHDAHDITDITDITDAHDITDAHDAHDITDAH DAHDITDAHDITDAHDAHDITDAHDAHDAHDAHDAHDAHDITDAH DAHDITDITDAHDAHDAHDITDAHDITDAHDAHDAHDITDAHDIT"
+=> "DITDIT / DITDAH DAHDAH / DAHDITDAHDIT DITDITDITDIT DITDIT DAHDIT DIT DITDITDIT DIT / DAHDAHDITDITDITDAHDITDITDITDITDAHDITDITDITDAH DAHDAHDITDITDAHDAHDITDITDITDAHDITDAHDAHDAHDAH DAHDITDITDAHDAHDAHDITDITDITDAHDITDAHDAHDITDAH DAHDITDAHDITDAHDAHDITDAHDAHDAHDAHDAHDAHDITDAH DAHDITDITDAHDAHDAHDITDAHDITDAHDAHDAHDITDAHDIT"
 ```
+
+#### Generate Wave File
+
+```ruby
+require 'morse_code'
+
+content = 'I am Robot.'
+MorseCode::Encoder.new(content).wave
+=> "/tmp/morse_code-5b9b3aa176.wav"
+```
+you can open this wave file and listen to the morse code sound.
 
 ### Decode
 
@@ -49,15 +60,15 @@ require 'morse_code'
 
 content = '.. / .- -- / .-. --- -... --- - .-.-.-'
 MorseCode::Decoder.new(content).decode
-$> "I AM ROBOT."
+=> "I AM ROBOT."
 
 dit_dah = 'DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH'
 MorseCode::Decoder.new(dit_dah).dit_dah_to
-$> "I AM ROBOT."
+=> "I AM ROBOT."
 
 content = '.. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.'
 MorseCode::Decoder.new(content).decode
-$> "I AM CHINESE 我是中国人"
+=> "I AM CHINESE 我是中国人"
 ```
 
 ### Terminal
@@ -73,27 +84,43 @@ mc commands:
 #### encode
 
 ```shell
+$> mc help encode
+Usage:
+  mc encode MESSAGE
+
+Options:
+  -d, [--dit-dah], [--no-dit-dah]  # encode DITDAH message
+  -w, [--wave], [--no-wave]        # gen morse code wav
+
+encode message as Morse Code
+```
+
+```shell
 $> mc -e 'I am Robot.'
-$> ".. / .- -- / .-. --- -... --- - .-.-.-"
+=> ".. / .- -- / .-. --- -... --- - .-.-.-"
 
 $> mc -e 'I am Robot.' --dit-dah
-$> "DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH"
+=> "DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH"
 
 $> mc -e 'I am Chinese 我是中国人'
 $> ".. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
+
+$> mc -e -w 'I am Chinese 我是中国人'
+=> ".. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
+=> "Generate wave file: /tmp/morse_code-0d56cd233e.wav" # open and listen to the morse code sound
 ```
 
 #### decode
 
 ```shell
 $> mc -d '.. / .- -- / .-. --- -... --- - .-.-.-'
-$> "I AM ROBOT."
+=> "I AM ROBOT."
 
 $> mc -d 'DITDIT / DITDAH DAHDAH / DITDAHDIT DAHDAHDAH DAHDITDITDIT DAHDAHDAH DAH DITDAHDITDAHDITDAH' --dit-dah
-$> "I AM ROBOT."
+=> "I AM ROBOT."
 
 $> mc -d '.. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.'
-$> "I AM CHINESE 我是中国人"
+=> "I AM CHINESE 我是中国人"
 ```
 
 ### Contributing

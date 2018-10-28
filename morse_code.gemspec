@@ -34,6 +34,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'guard-minitest', '~> 2.4'
   spec.add_development_dependency 'minitest', '~> 5.11'
   spec.add_development_dependency 'minitest-reporters', '~> 1.3'
+  spec.add_development_dependency 'mocha', '~> 1.7'
   spec.add_development_dependency 'pry', '~> 0.11'
   spec.add_development_dependency 'pry-byebug', '~> 3.5'
   spec.add_development_dependency 'rake', '~> 10.0'
@@ -41,5 +42,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov', '~> 0.16'
 
   spec.add_dependency 'thor', '~> 0.19'
+  spec.add_dependency 'wavefile'
   spec.required_ruby_version = '>= 2.2.0'
 end
