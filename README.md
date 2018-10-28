@@ -151,6 +151,11 @@ $ bundle exec rake test
 
 Click the `'Pull Request'` button and fill out the form.
 
+### Resource
+ - [Learn More Code](http://www.learnmorsecode.com/)
+ - [Morse Pro](https://github.com/scp93ch/morse-pro)
+ - [Wavefile](https://github.com/jstrait/wavefile)
+
 ### License
 
 MIT License. See [LICENSE](https://github.com/superiorlu/morse_code/blob/master/LICENSE.md) for details.
