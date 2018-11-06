@@ -13,7 +13,7 @@ module MorseCode
         decode_binary_word >= MIN_CHINESE_CODEPOINT && decode_binary_word <= MAX_CHINESE_CODEPOINT
       end
 
-      def decode
+      def call
         decode_binary_word.chr('UTF-8')
       end
 

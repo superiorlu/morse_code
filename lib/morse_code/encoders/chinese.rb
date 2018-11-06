@@ -10,7 +10,7 @@ module MorseCode
         !/\p{Han}/.match(word).nil? # \u4e00-\u9fa5
       end
 
-      def encode
+      def call
         word.ord.to_s(2).tr!('0', '.').tr!('1', '-')
       end
     end

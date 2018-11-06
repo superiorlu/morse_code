@@ -10,7 +10,7 @@ module MorseCode
         !MorseCode::DECODE_MAP[word].nil?
       end
 
-      def decode
+      def call
         MorseCode::DECODE_MAP[word]
       end
     end

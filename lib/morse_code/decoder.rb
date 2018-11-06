@@ -35,11 +35,7 @@ module MorseCode
     private
 
     def decode_char(char)
-      supported_classes = MorseCode::Base.new(char).supported_classes
-      supported_class = supported_classes.detect { |clazz| clazz.name.start_with?('MorseCode::Decoder') }
-      return supported_class.new(char).decode if supported_class
-
-      char
+      MorseCode::Base.new(char, self.class.name).call
     end
   end
 end

@@ -9,14 +9,23 @@ module MorseCode
       @@subclasses << subclass
     end
 
-    attr_reader :word
+    attr_reader :word, :namespace
 
-    def initialize(word = '')
+    def initialize(word = '', namespace = '')
       @word = word
+      @namespace = namespace
     end
 
     def supported?
       raise NotImplementedError, 'Subclass must override supported? method'
+    end
+
+    def call
+      supported_class&.new(word).call || word
+    end
+
+    def supported_class
+      supported_classes.detect { |clazz| clazz.name.start_with?(namespace) }
     end
 
     def supported_classes

@@ -38,11 +38,7 @@ module MorseCode
     end
 
     def encode_letter(letter)
-      supported_classes = MorseCode::Base.new(letter).supported_classes
-      supported_class = supported_classes.detect { |clazz| clazz.name.start_with?('MorseCode::Encoder') }
-      return supported_class.new(letter).encode if supported_class
-
-      letter
+      MorseCode::Base.new(letter, self.class.name).call
     end
   end
 end

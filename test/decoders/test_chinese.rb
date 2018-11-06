@@ -13,6 +13,6 @@ class TestDecodersChinese < Minitest::Test
 
   def test_decode
     chinese_encoder = MorseCode::Decoders::Chinese.new('--...-....-...-')
-    assert_equal '我', chinese_encoder.decode
+    assert_equal '我', chinese_encoder.call
   end
 end

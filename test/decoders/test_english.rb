@@ -13,6 +13,6 @@ class TestDecodersEnglish < Minitest::Test
 
   def test_encode
     englisth_encoder = MorseCode::Decoders::English.new('..')
-    assert_equal 'I', englisth_encoder.decode
+    assert_equal 'I', englisth_encoder.call
   end
 end
