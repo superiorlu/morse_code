@@ -7,6 +7,8 @@ require 'morse_code/decoders/english'
 
 module MorseCode
   class Decoder
+    include MorseCode::Cacheable
+
     def initialize(message = '')
       @message = message.dup
     end
@@ -35,7 +37,9 @@ module MorseCode
     private
 
     def decode_char(char)
-      MorseCode::Base.new(char, self.class.name).call
+      fetch(char) do
+        MorseCode::Base.new(char, self.class.name).call
+      end
     end
   end
 end

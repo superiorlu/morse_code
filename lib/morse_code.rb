@@ -1,5 +1,6 @@
 require 'morse_code/version'
 require 'morse_code/error'
+require 'morse_code/cacheable'
 require 'morse_code/encoder'
 require 'morse_code/decoder'
 require 'morse_code/sample'

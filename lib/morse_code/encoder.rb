@@ -7,6 +7,8 @@ require 'morse_code/encoders/english'
 
 module MorseCode
   class Encoder
+    include MorseCode::Cacheable
+
     def initialize(message = '')
       @message = message.upcase
     end
@@ -38,7 +40,9 @@ module MorseCode
     end
 
     def encode_letter(letter)
-      MorseCode::Base.new(letter, self.class.name).call
+      fetch(letter) do
+        MorseCode::Base.new(letter, self.class.name).call
+      end
     end
   end
 end

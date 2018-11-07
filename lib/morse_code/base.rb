@@ -17,11 +17,12 @@ module MorseCode
     end
 
     def supported?
-      raise NotImplementedError, 'Subclass must override supported? method'
+      raise MorseCode::NotImplementedError, 'Subclass must override supported? method'
     end
 
     def call
-      supported_class&.new(word).call || word
+      return supported_class.new(word).call if supported_class
+      word
     end
 
     def supported_class

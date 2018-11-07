@@ -16,6 +16,16 @@ class TestEncoder < Minitest::Test
     assert_equal '--...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-.', encode_message
   end
 
+  def test_encode_with_cache
+    message = 'I am RooooooBooot.'
+    english_encoder = mock('english_encoder')
+    english_encoder.stubs(:call).returns('*')
+    MorseCode::Base.expects(:new).with(any_parameters).returns(english_encoder).times(8)
+    encoder = MorseCode::Encoder.new(message)
+    encode_message = encoder.encode
+    assert_equal 8, encoder.cache.keys.size
+  end
+
   def test_dit_dah
     message = 'I am Robot.'
     encode_message = MorseCode::Encoder.new(message).dit_dah
