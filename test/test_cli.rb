@@ -48,21 +48,21 @@ class TesCli < Minitest::Test
 
   def test_encode_on_terminal
     out, _ = capture_subprocess_io do
-      system("mc -e 'I am Robot.'")
+      system("bundle exec mc -e 'I am Robot.'")
     end
     assert_equal ".. / .- -- / .-. --- -... --- - .-.-.-\n", out
   end
 
   def test_encode_with_wave_on_terminal
     out, _ = capture_subprocess_io do
-      system("mc -e 'I am Robot.' -w")
+      system("bundle exec mc -e 'I am Robot.' -w")
     end
     assert_match %r{Generate wave file: /tmp/morse_code-}, out
   end
 
   def test_decode_on_terminal
     out, _ = capture_subprocess_io do
-      system("mc -d '.. / .- -- / .-. --- -... --- - .-.-.-'")
+      system("bundle exec mc -d '.. / .- -- / .-. --- -... --- - .-.-.-'")
     end
     assert_equal "I AM ROBOT.\n", out
   end
