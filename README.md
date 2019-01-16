@@ -51,7 +51,8 @@ content = 'I am Robot.'
 MorseCode::Encoder.new(content).wave
 => "/tmp/morse_code-5b9b3aa176.wav"
 ```
-you can open this wave file and listen to the morse code sound.
+you can open [wavefile](https://pan.baidu.com/s/1TtpfOzJplyFLDu_hbk8V7A) and listen to the morse code sound.
+
 
 ### Decode
 
@@ -107,8 +108,10 @@ $> mc -e 'I am Chinese 我是中国人'
 
 $> mc -e -w 'I am Chinese 我是中国人'
 => ".. / .- -- / -.-. .... .. -. . ... . / --...-....-...- --..--...-.---- -..---...-.--.- -.-.--.------.- -..---.-.---.-."
-=> "Generate wave file: /tmp/morse_code-0d56cd233e.wav" # open and listen to the morse code sound
+=> "Generate wave file: /tmp/morse_code-0d56cd233e.wav"
 ```
+
+you can open [wavefile](https://pan.baidu.com/s/1v5RcZSsYOHBxkF7nsbAz_g) and listen to the morse code sound.
 
 #### decode
 
